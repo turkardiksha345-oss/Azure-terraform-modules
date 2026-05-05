@@ -1,0 +1,36 @@
+# Example Terraform Variables
+# Copy this file to terraform.tfvars and update with your values
+
+# Azure Configuration
+subscription_id = "your-subscription-id"
+tenant_id       = "your-tenant-id"
+
+# General Settings
+location            = "East US"
+resource_group_name = "rg-azure-infrastructure"
+
+# Network Configuration
+vnet_name          = "vnet-main"
+vnet_address_space = ["10.0.0.0/16"]
+
+# Storage Configuration
+# Note: Storage account name must be unique globally, 3-24 characters, lowercase alphanumeric only
+storage_account_name = "storageunique123"
+storage_account_tier = "Standard"
+
+# Virtual Machine Configuration
+vm_name      = "vm-main"
+vm_size      = "Standard_B2s"
+ssh_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC..."  # Replace with your SSH public key
+
+# AKS Cluster Configuration
+cluster_name         = "aks-main"
+kubernetes_version   = "1.27"
+aks_node_count       = 3
+aks_node_vm_size     = "Standard_B2s"
+
+# Tags
+common_tags = {
+  ManagedBy = "Terraform"
+  Project   = "Azure-Infrastructure"
+}
