@@ -15,7 +15,6 @@ resource "azurerm_kubernetes_cluster" "aks" {
     min_count       = var.enable_auto_scaling ? var.min_node_count : null
     max_count       = var.enable_auto_scaling ? var.max_node_count : null
     type            = "VirtualMachineScaleSets"
-    auto_scaling_enabled = var.enable_auto_scaling
   }
 
   identity {
@@ -26,7 +25,7 @@ resource "azurerm_kubernetes_cluster" "aks" {
     network_plugin    = var.network_plugin
     load_balancer_sku = "standard"
     service_cidr      = "10.1.0.0/16"
-    dns_service_ip    = "10.1.0.10"
+    dns_service_ip    = "10.1.0.10" 
   }
 
   role_based_access_control_enabled = var.enable_rbac
