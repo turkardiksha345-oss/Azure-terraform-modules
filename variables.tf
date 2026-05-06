@@ -71,16 +71,6 @@ variable "vm_size" {
   default     = "Standard_B2s"
 }
 
-variable "ssh_public_key" {
-  description = "SSH public key for VM"
-  type        = string
-}
-
-variable "private_key_path" {
-  description = "Path to private SSH key (used for provisioner)"
-  type        = string
-}
-
 # AKS
 variable "cluster_name" {
   description = "AKS cluster name"
