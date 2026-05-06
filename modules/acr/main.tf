@@ -11,9 +11,9 @@ resource "azurerm_container_registry" "acr" {
 
 # Optional: Attach ACR to AKS (VERY IMPORTANT in real projects)
 resource "azurerm_role_assignment" "acr_pull" {
-  count = var.aks_kubelet_identity != "" ? 1 : 0
-
   principal_id         = var.aks_kubelet_identity
   role_definition_name = "AcrPull"
   scope                = azurerm_container_registry.acr.id
+
+  depends_on = [module.aks]
 }
