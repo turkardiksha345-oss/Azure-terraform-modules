@@ -1,9 +1,9 @@
 # Azure credentials
-subscription_id = "your-subscription-id"
-tenant_id       = "your-tenant-id"
+subscription_id = "74a622a9-2b0f-42e1-bbac-9ce0b8edd600"
+tenant_id       = "1aa203ed-2bd8-45b5-a43e-3c4ebd800083"
 
 # General
-location            = "East US"
+location            = "Central India"
 resource_group_name = "rg-azure-terraform"
 
 # Network
