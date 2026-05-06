@@ -33,17 +33,20 @@ resource "azurerm_linux_virtual_machine" "vm" {
   size                = var.vm_size
 
   admin_username = var.admin_username
+  admin_password = var.admin_password   # ✅ Added
 
   network_interface_ids = [
     azurerm_network_interface.nic.id
   ]
 
-  disable_password_authentication = true
+  # ✅ Enable password login
+  disable_password_authentication = false
 
-  admin_ssh_key {
-    username   = var.admin_username
-    public_key = var.ssh_public_key
-  }
+  # ❌ REMOVE THIS BLOCK (not needed for password login)
+  # admin_ssh_key {
+  #   username   = var.admin_username
+  #   public_key = var.ssh_public_key
+  # }
 
   os_disk {
     name                 = "${var.vm_name}-osdisk"
@@ -72,12 +75,10 @@ resource "azurerm_linux_virtual_machine" "vm" {
     ]
 
     connection {
-      type        = "ssh"
-      user        = var.admin_username
-      private_key = file(var.private_key_path)
-
-      # Safe public IP reference
-      host = var.enable_public_ip ? azurerm_public_ip.pip[0].ip_address : null
+      type     = "ssh"
+      user     = var.admin_username
+      password = var.admin_password   # ✅ Use password instead of key
+      host     = var.enable_public_ip ? azurerm_public_ip.pip[0].ip_address : null
     }
   }
 }

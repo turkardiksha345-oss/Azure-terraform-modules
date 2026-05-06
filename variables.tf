@@ -58,6 +58,13 @@ variable "vm_name" {
   default     = "vm-main"
 }
 
+variable "admin_password" {
+  description = "Password for VM login"
+  type        = string
+  sensitive   = true
+  
+}
+
 variable "vm_size" {
   description = "VM size"
   type        = string

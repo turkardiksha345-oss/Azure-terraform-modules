@@ -43,8 +43,7 @@ resource "azurerm_kubernetes_cluster_node_pool" "additional" {
   os_disk_size_gb = 30
   os_type         = "Linux"
 
-  enable_auto_scaling = var.enable_auto_scaling
-
+  
   node_count = var.enable_auto_scaling ? null : 2
   min_count  = var.enable_auto_scaling ? var.min_node_count : null
   max_count  = var.enable_auto_scaling ? var.max_node_count : null

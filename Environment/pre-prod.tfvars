@@ -20,9 +20,8 @@ acr_name = "acrdevops12345"
 # VM
 vm_name = "vm-01"
 vm_size = "Standard_B2s"
+admin_password = "Admin@12345"
 
-ssh_public_key   = file("~/.ssh/id_rsa.pub")
-private_key_path = "~/.ssh/id_rsa"
 
 # AKS Cluster
 cluster_name       = "akscluster01"
@@ -40,3 +39,9 @@ common_tags = {
   Owner     = "DevOps"
   Project   = "Azure-Infrastructure"
 }
+
+# SQL Database (must be unique globally)
+sql_server_name = "sqlserverdevops12345"   
+database_name   = "sqldb"
+sql_admin       = "azureuser"
+sql_password    = "Admin@12345"

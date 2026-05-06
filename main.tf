@@ -80,8 +80,7 @@ module "vm" {
   vm_size   = var.vm_size
   subnet_id = module.network.vm_subnet_id
 
-  ssh_public_key   = var.ssh_public_key
-  private_key_path = var.private_key_path   # ❗ REQUIRED FIX
+  admin_password = var.admin_password
   enable_public_ip = true
 
   tags = var.common_tags

@@ -14,6 +14,12 @@ variable "vm_name" {
   type        = string
 }
 
+variable "admin_password" {
+  description = "Password for VM login"
+  type        = string
+  sensitive   = true
+}
+
 variable "vm_size" {
   description = "Size of the virtual machine"
   type        = string
@@ -61,17 +67,6 @@ variable "admin_username" {
   description = "Admin username for the VM"
   type        = string
   default     = "azureuser"
-}
-
-variable "ssh_public_key" {
-  description = "SSH public key for authentication"
-  type        = string
-}
-
-# ❗ REQUIRED for Ansible provisioning (MISSING IN YOUR FILE)
-variable "private_key_path" {
-  description = "Path to private SSH key (used for provisioner)"
-  type        = string
 }
 
 variable "enable_public_ip" {
